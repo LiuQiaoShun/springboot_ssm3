@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert title here</title>
+    <style type="text/css">
+        #info_select>div>div{
+            float:left;
+            margin-left: 20px;
+        }
+        #info_select>div{
+            height:30px;
+        }
+    </style>
+    <script src="../static/js/app.js"></script>
+</head>
+<body>
+<!-- 筛选栏 -->
+<div id="info_select">
+    <!-- 查询数据库获得所有方向筛选项 -->
+    <div id="info_select_direction">
+        <div>方向：</div>
+        <div><a>全部</a></div>
+        <div th:each="direction:${directions}">
+            <a th:text="${direction.direction_name}" href="#" th:content="dirId" th:value="${direction.directionId}"></a>
+        </div>
+    </div>
+    <!-- 查询数据库获得所有性别筛选项 -->
+    <div id="info_select_gender">
+        <div>性别：</div>
+        <div><a>全部</a></div>
+        <div><a href="#" th:content="sex" th:value="1">男</a></div>
+        <div><a href="#" th:content="sex" th:value="0">女</a></div>
+    </div>
+</div>
+
+<!-- 学生信息内容，获取表格信息后会填充到该div中 -->
+<div id="gra_content">
+</div>
+
+<script th:src="@{plugins/jquery-2.0.2.min.js}"></script>
+<script th:src="@{js/app.js}"></script>
+</body>
+</html>

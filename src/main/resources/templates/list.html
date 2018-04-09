@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>学生筛选系统</title>
+</head>
+<body>
+    方向: &nbsp;  全部 &nbsp;&nbsp; <a href="findStudentByJave">java开发</a>  <a href="date">大数据</a>  <a href="test">软件测试</a>  <a href="web">web前端</a>
+    <br/>
+    <br/>
+    性别: &nbsp; 全部 &nbsp;&nbsp; <a href="man">男</a>  <a href="woman">女</a>
+    <br/>
+    <br/>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <td>学号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>专业</td>
+                <td>方向</td>
+                <td>技术</td>
+                <td>能力</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student:${student}">
+            <td th:text="${student.studentno}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.sex}"></td>
+            <td th:text="${student.major}"></td>
+            <td th:text="${student.direction}"></td>
+            <td th:text="${student.technology}"></td>
+            <td th:text="${student.ability}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <a href="to_add">新增学生</a>
+</body>
+</html>
